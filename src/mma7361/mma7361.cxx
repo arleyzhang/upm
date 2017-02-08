@@ -26,6 +26,7 @@
 #include <stdexcept>
 
 #include "mma7361.hpp"
+#include "upm.hpp"
 
 using namespace upm;
 using namespace std;
@@ -66,7 +67,7 @@ bool MMA7361::isInFreefall()
     {
       throw std::runtime_error(string(__FUNCTION__)
                                + ": mma7361_freefall() failed with UPM error "
-                               + std::to_string(int(rv)) );
+                               + to_string(int(rv)) );
     }
 
   return freefall;
@@ -80,7 +81,7 @@ void MMA7361::enableSelftest(bool enable)
     {
       throw std::runtime_error(string(__FUNCTION__)
                                + ": mma7361_selftest() failed with UPM error "
-                               + std::to_string(int(rv)) );
+                               + to_string(int(rv)) );
     }
 }
 
@@ -92,7 +93,7 @@ void MMA7361::update()
     {
       throw std::runtime_error(string(__FUNCTION__)
                                + ": mma7361_update() failed with UPM error "
-                               + std::to_string(int(rv)) );
+                               + to_string(int(rv)) );
     }
 }
 

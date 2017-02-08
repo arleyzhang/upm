@@ -28,6 +28,7 @@
 #include <stdexcept>
 
 #include "bno055.hpp"
+#include "upm.hpp"
 
 using namespace upm;
 using namespace std;

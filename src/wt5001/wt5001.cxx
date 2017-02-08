@@ -28,6 +28,7 @@
 #include <stdexcept>
 
 #include "wt5001.hpp"
+#include "upm.hpp"
 
 using namespace upm;
 using namespace std;
@@ -282,7 +283,7 @@ bool WT5001::setVolume(uint8_t vol)
 {
   if (vol > WT5001_MAX_VOLUME)
     {
-      // C++11 std::to_string() would be nice, but...
+      // C++11 to_string() would be nice, but...
       std::ostringstream str;
       str << WT5001_MAX_VOLUME;
 

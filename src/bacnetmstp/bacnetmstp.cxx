@@ -34,6 +34,7 @@
 #include "client.h"
 #include "txbuf.h"
 #include "mstpdef.h"
+#include "upm.hpp"
 
 using namespace upm;
 using namespace std;
@@ -316,7 +317,7 @@ void BACNETMSTP::initMaster(std::string port, int baudRate,
     {
       throw std::out_of_range(std::string(__FUNCTION__)
                               + ": maxMaster must be between 0 and "
-                              + std::to_string(DEFAULT_MAX_MASTER));
+                              + to_string(DEFAULT_MAX_MASTER));
     }
 
   // As a master ourselves, we must have a MAC address also within the
@@ -325,7 +326,7 @@ void BACNETMSTP::initMaster(std::string port, int baudRate,
     {
       throw std::out_of_range(std::string(__FUNCTION__)
                               + ": macAddr must be between 0 and "
-                              + std::to_string(DEFAULT_MAX_MASTER));
+                              + to_string(DEFAULT_MAX_MASTER));
     }
 
   // this should be unique on the network
@@ -333,7 +334,7 @@ void BACNETMSTP::initMaster(std::string port, int baudRate,
     {
       throw std::out_of_range(std::string(__FUNCTION__)
                               + ": deviceInstanceID must be less than "
-                              + std::to_string(BACNET_MAX_INSTANCE)
+                              + to_string(BACNET_MAX_INSTANCE)
                               + ", and must be unique on the network");
     }
 
@@ -586,7 +587,7 @@ bool BACNETMSTP::readProperty(uint32_t targetDeviceInstanceID,
     {
       throw std::out_of_range(std::string(__FUNCTION__)
                               + ": objInstance must be less than "
-                              + std::to_string(BACNET_MAX_INSTANCE));
+                              + to_string(BACNET_MAX_INSTANCE));
     }
 
   // fill in the command structure and dispatch
@@ -622,7 +623,7 @@ bool BACNETMSTP::writeProperty(uint32_t targetDeviceInstanceID,
     {
       throw std::out_of_range(std::string(__FUNCTION__)
                               + ": objInstance must be less than "
-                              + std::to_string(BACNET_MAX_INSTANCE));
+                              + to_string(BACNET_MAX_INSTANCE));
     }
 
   // fill in the command structure and dispatch
@@ -683,7 +684,7 @@ float BACNETMSTP::getDataTypeReal(int index)
         default:
           throw std::invalid_argument(std::string(__FUNCTION__)
                                       + ": data type ("
-                                      + std::to_string(int(getDataType(index)))
+                                      + to_string(int(getDataType(index)))
                                       + ") is not convertible to Real");
         }
     }
@@ -696,7 +697,7 @@ bool BACNETMSTP::getDataTypeBoolean(int index)
   else
     throw std::invalid_argument(std::string(__FUNCTION__)
                                 + ": data type ("
-                                + std::to_string(int(getDataType(index)))
+                                + to_string(int(getDataType(index)))
                                 + ") is not convertible to Bool");
 }
 
@@ -707,7 +708,7 @@ unsigned int BACNETMSTP::getDataTypeUnsignedInt(int index)
   else
     throw std::invalid_argument(std::string(__FUNCTION__)
                                 + ": data type ("
-                                + std::to_string(int(getDataType(index)))
+                                + to_string(int(getDataType(index)))
                                 + ") is not convertible to UnsignedInt");
 }
 
@@ -718,7 +719,7 @@ int BACNETMSTP::getDataTypeSignedInt(int index)
   else
     throw std::invalid_argument(std::string(__FUNCTION__)
                                 + ": data type ("
-                                + std::to_string(int(getDataType(index)))
+                                + to_string(int(getDataType(index)))
                                 + ") is not convertible to SignedInt");
 }
 
@@ -746,7 +747,7 @@ double BACNETMSTP::getDataTypeDouble(int index)
         default:
           throw std::invalid_argument(std::string(__FUNCTION__)
                                       + ": data type ("
-                                      + std::to_string(int(getDataType(index)))
+                                      + to_string(int(getDataType(index)))
                                       + ") is not convertible to Double");
         }
     }
@@ -760,7 +761,7 @@ unsigned int BACNETMSTP::getDataTypeEnum(int index)
   else
     throw std::invalid_argument(std::string(__FUNCTION__)
                                 + ": data type ("
-                                + std::to_string(int(getDataType(index)))
+                                + to_string(int(getDataType(index)))
                                 + ") is not convertible to Enum");
 }
 
@@ -772,21 +773,21 @@ std::string BACNETMSTP::getDataTypeString(int index)
   switch(getDataType(index))
     {
     case BACNET_APPLICATION_TAG_REAL:
-      retval = std::to_string(getDataTypeReal(index));
+      retval = to_string(getDataTypeReal(index));
       break;
 
 #if defined(BACAPP_DOUBLE)
     case BACNET_APPLICATION_TAG_DOUBLE:
-      retval = std::to_string(getDataTypeDouble(index));
+      retval = to_string(getDataTypeDouble(index));
       break;
 #endif // BACAPP_DOUBLE
 
     case BACNET_APPLICATION_TAG_UNSIGNED_INT:
-      retval = std::to_string(getDataTypeUnsignedInt(index));
+      retval = to_string(getDataTypeUnsignedInt(index));
       break;
 
     case BACNET_APPLICATION_TAG_SIGNED_INT:
-      retval = std::to_string(getDataTypeSignedInt(index));
+      retval = to_string(getDataTypeSignedInt(index));
       break;
 
     case BACNET_APPLICATION_TAG_BOOLEAN:
@@ -831,7 +832,7 @@ std::string BACNETMSTP::getDataTypeString(int index)
     default:
       throw std::invalid_argument(std::string(__FUNCTION__)
                                   + ": data type ("
-                                  + std::to_string(int(getDataType(index)))
+                                  + to_string(int(getDataType(index)))
                                   + ") is not convertible to String");
       break;
     }
@@ -893,7 +894,7 @@ BACNET_APPLICATION_DATA_VALUE BACNETMSTP::createDataString(string value)
     {
       throw std::invalid_argument(std::string(__FUNCTION__)
                                   + ": value must be less than or equal to "
-                                  + std::to_string(MAX_CHARACTER_STRING_BYTES - 1)
+                                  + to_string(MAX_CHARACTER_STRING_BYTES - 1)
                                   + " characters long");
     }
 

@@ -31,6 +31,7 @@
 #include <math.h>
 
 #include "servo.hpp"
+#include "upm.hpp"
 
 using namespace upm;
 
@@ -62,7 +63,7 @@ Servo::~Servo () {
  * */
 mraa_result_t Servo::setAngle (int angle) {
     if (angle > m_maxAngle || angle < 0) {
-        // C++11 std::to_string() would be nice, but...
+        // C++11 to_string() would be nice, but...
         std::ostringstream str;
         str << m_maxAngle;
         throw std::out_of_range(std::string(__FUNCTION__) +

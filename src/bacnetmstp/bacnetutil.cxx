@@ -30,6 +30,7 @@
 #include <string>
 
 #include "bacnetutil.hpp"
+#include "upm.hpp"
 
 using namespace upm;
 using namespace std;
@@ -528,7 +529,7 @@ string BACNETUTIL::lookupMultiStateValueText(uint32_t objInstance,
     throw std::out_of_range(std::string(__FUNCTION__)
                             + ": value supplied is invalid. Maximum "
                             + "allowed values are 1 to "
-                            + std::to_string(m_msvInfo[objInstance].numStates)
+                            + to_string(m_msvInfo[objInstance].numStates)
                             + " for this object");
 
 
@@ -549,7 +550,7 @@ string BACNETUTIL::lookupMultiStateValueText(uint32_t objInstance,
     }
 
   // no stateList text available, so just return value as a string
-  return std::to_string(value);
+  return to_string(value);
 }
 
 unsigned int BACNETUTIL::getMultiStateValueMaxStates(uint32_t objInstance)
@@ -579,7 +580,7 @@ void BACNETUTIL::setMultiStateValue(uint32_t objInstance,
     throw std::invalid_argument(std::string(__FUNCTION__)
                                 + ": value supplied is invalid. Maximum "
                                 + "allowed values are 1 to "
-                                + std::to_string(m_msvInfo[objInstance].numStates)
+                                + to_string(m_msvInfo[objInstance].numStates)
                                 + " for this object");
 
   // Write the value

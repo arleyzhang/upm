@@ -24,6 +24,7 @@
 
 #include <signal.h>
 #include "jhd1313m1.hpp"
+#include "upm.hpp"
 
 int shouldRun = true;
 
@@ -60,7 +61,7 @@ main(int argc, char **argv)
         uint8_t g = rgb[ndx%7][1];
         uint8_t b = rgb[ndx%7][2];
         lcd.setColor(r, g, b);
-        lcd.write("Hello World " + std::to_string(ndx));
+        lcd.write("Hello World " + to_string(ndx));
         // Echo via printf
         printf("Hello World %d rgb: 0x%02x%02x%02x\n", ndx++, r, g, b);
 

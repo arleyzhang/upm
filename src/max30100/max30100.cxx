@@ -23,6 +23,7 @@
  */
 
 #include <stdexcept>
+#include "upm.hpp"
 #include "max30100.hpp"
 
 using namespace upm;
@@ -30,7 +31,7 @@ using namespace upm;
 void max30100_throw(std::string func, std::string cmd, upm_result_t result)
 {
     throw std::runtime_error(func + ": " + cmd + " failed, " +
-            "upm_result_t: " + std::to_string(result));
+            "upm_result_t: " + to_string(result));
 }
 
 MAX30100::MAX30100(int16_t i2c_bus) : _dev(max30100_init(i2c_bus))

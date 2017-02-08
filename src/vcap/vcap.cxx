@@ -30,6 +30,7 @@
 #include <string.h>
 
 #include "vcap.hpp"
+#include "upm.hpp"
 
 using namespace upm;
 using namespace std;
@@ -187,9 +188,9 @@ bool VCAP::setResolution(int width, int height)
     {
       if (m_debugging)
         cerr << __FUNCTION__ << ": Warning: Selected width "
-             << std::to_string(m_width)
+             << to_string(m_width)
              << " adjusted by driver to "
-             << std::to_string(m_format.fmt.pix.width)
+             << to_string(m_format.fmt.pix.width)
              << endl;
 
       m_width = m_format.fmt.pix.width;
@@ -199,9 +200,9 @@ bool VCAP::setResolution(int width, int height)
     {
       if (m_debugging)
         cerr << __FUNCTION__ << ": Warning: Selected height "
-             << std::to_string(m_height)
+             << to_string(m_height)
              << " adjusted by driver to "
-             << std::to_string(m_format.fmt.pix.height)
+             << to_string(m_format.fmt.pix.height)
              << endl;
 
       m_height = m_format.fmt.pix.height;

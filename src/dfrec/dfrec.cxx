@@ -26,6 +26,7 @@
 #include <stdexcept>
 
 #include "dfrec.hpp"
+#include "upm.hpp"
 
 using namespace upm;
 using namespace std;
@@ -53,7 +54,7 @@ void DFREC::update()
     {
       throw std::runtime_error(string(__FUNCTION__)
                                + ": dfrec_update() failed with UPM error "
-                               + std::to_string(int(rv)) );
+                               + to_string(int(rv)) );
     }
 }
 
