@@ -30,7 +30,6 @@
 #include <string>
 
 #include "bmp280.hpp"
-#include "upm.hpp"
 
 using namespace upm;
 using namespace std;

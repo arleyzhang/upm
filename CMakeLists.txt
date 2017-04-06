@@ -427,13 +427,8 @@ endif()
 
 # UPM common headers
 set (UPM_COMMON_HEADER_DIRS
-    ${CMAKE_HOME_DIRECTORY}/include)
-    #${CMAKE_HOME_DIRECTORY}/include/fti)
-
-
-# Add include directories for C/CXX
-include_directories (${UPM_COMMON_HEADER_DIRS}
-                     ${CMAKE_SOURCE_DIR}/src/utilities)
+    ${CMAKE_HOME_DIRECTORY}/include
+    ${CMAKE_HOME_DIRECTORY}/include/fti)
 
 # UPM source
 add_subdirectory (src)

@@ -34,8 +34,10 @@ namespace upm
 {
 
 #ifdef ANDROID
-#define to_string(x) static_cast< std::ostringstream & >( \
-        ( std::ostringstream() << std::dec << x ) ).str()
+/* As of android API 24, there seems to be no support for c++11 to_string.
+ * Provide an implementation here. */
+#define to_string(x) static_cast< std::ostringstream & > \
+    (( std::ostringstream() << std::dec << x )).str()
 #else
 #define to_string(x) std::to_string(x)
 #endif

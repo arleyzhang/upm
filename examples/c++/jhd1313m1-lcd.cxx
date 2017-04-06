@@ -25,6 +25,7 @@
 #include <signal.h>
 #include "jhd1313m1.hpp"
 #include "upm.hpp"
+#include "upm_utilities.h"
 
 int shouldRun = true;
 

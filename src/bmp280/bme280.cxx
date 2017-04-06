@@ -32,7 +32,6 @@
 #include <string.h>
 
 #include "bme280.hpp"
-#include "upm.hpp"
 
 using namespace upm;
 using namespace std;

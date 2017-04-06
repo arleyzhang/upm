@@ -28,7 +28,6 @@
 #include <stdexcept>
 
 #include "wt5001.hpp"
-#include "upm.hpp"
 
 using namespace upm;
 using namespace std;
